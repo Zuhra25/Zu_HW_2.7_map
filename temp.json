@@ -1,0 +1,34 @@
+{
+  "1": [
+    {
+      "firstName": "Иван1",
+      "lastName": "Иванов1",
+      "salary": 1000.0,
+      "department": 1,
+      "fullName": "Иван1 Иванов1"
+    },
+    {
+      "firstName": "Иван2",
+      "lastName": "Иванов2",
+      "salary": 2000.0,
+      "department": 1,
+      "fullName": "Иван2 Иванов2"
+    }
+  ],
+  "2": [
+    {
+      "firstName": "Иван3",
+      "lastName": "Иванов3",
+      "salary": 10000.0,
+      "department": 2,
+      "fullName": "Иван3 Иванов3"
+    },
+    {
+      "firstName": "Иван4",
+      "lastName": "Иванов4",
+      "salary": 20000.0,
+      "department": 2,
+      "fullName": "Иван4 Иванов4"
+    }
+  ]
+}
