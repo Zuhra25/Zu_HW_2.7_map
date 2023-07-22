@@ -9,56 +9,55 @@ import pro.sky.ZuHW27map.exceptions.EmployeeStorageIsFullException;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
 import java.util.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    private final Map<String, Employee> employees;
-    private int size = 2;
+    private final List<Employee> employees=new ArrayList<>();
+    private int size = 4;
 
     public EmployeeServiceImpl() {
-        this.employees = new HashMap<>(size) {
-        };
+        employees.add(new Employee("Иван1", "Иванов1", 1000, 1));
+        employees.add(new Employee("Иван2", "Иванов2", 2000, 1));
+        employees.add(new Employee("Иван3", "Иванов3", 10000, 2));
+        employees.add(new Employee("Иван4", "Иванов4", 20000, 2));
     }
 
-    public Employee addEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
+    public Employee addEmployee(String firstName, String lastName, double salary, int department) {
+        Employee employee = new Employee(firstName, lastName, salary,department);
         if (firstName =="" || lastName == "") {
-            throw new BadParamsException();
+            throw new BadParamsException("поля пустые");
 
         }
-        //if (employees.contains(employee)) {
-            if (employees.containsKey(employee.getFullName())) {
+            if (employees.contains(employee)) {
             throw new EmployeeAlreadyAddedException("этот сотрудник уже существует");
         }
         if (employees.size() > size) {
             throw new EmployeeStorageIsFullException("лимит сотрудников превышен");
         }
-        employees.put(employee.getFullName(), employee);
+        employees.add(employee);
         return employee;
     }
 
-    public Employee removeEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
+    public Employee removeEmployee(String firstName, String lastName, double salary, int department) {
+        Employee employee = new Employee(firstName, lastName, salary,department);
 
-        if (employees.containsKey(employee.getFullName())) {
-            employees.remove(employee.getFullName());
+        if (employees.contains(employee)) {
+            employees.remove(employee);
             return employee;
         }
         throw new EmployeeNotFoundException("этот сотрудник отсутствует");
     }
 
-    public Employee findEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
-        if (employees.containsKey(employee.getFullName())) {
+    public Employee findEmployee(String firstName, String lastName, double salary, int department) {
+        Employee employee = new Employee(firstName, lastName, salary,department);
+        if (employees.contains(employee)) {
             return employee;
         }
         throw new EmployeeNotFoundException("этот сотрудник отсутствует");
     }
 
     public Collection<Employee> printAll() {
-        return new ArrayList<>(employees.values());
+        return new ArrayList<>(employees);
     }
 }
