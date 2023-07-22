@@ -32,8 +32,10 @@ public class DepartmentController {
     public List<Employee> allEmployeeInDep(@RequestParam int departmentId) {
         return departmentServiceImpl.allEmployeeInDep(departmentId);
     }
+
     @GetMapping
-    public Map<Integer, List<Employee>> allEmployee () {
+    public Map<Integer, List<Employee>> allEmployee() {
         return departmentServiceImpl.allEmployee();
     }
 }
+

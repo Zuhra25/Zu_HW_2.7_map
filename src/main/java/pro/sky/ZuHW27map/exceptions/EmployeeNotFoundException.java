@@ -6,3 +6,4 @@ public class EmployeeNotFoundException extends RuntimeException {
         super(a);
     }
 }
+
