@@ -45,6 +45,4 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employeeService.printAll().stream()
                 .collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.toList()));
     }
-
 }
-

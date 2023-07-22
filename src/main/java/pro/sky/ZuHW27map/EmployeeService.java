@@ -10,7 +10,4 @@ public interface EmployeeService {
     public Employee findEmployee(String firstName, String lastName, double salary, int department);
 
     public Collection<Employee> printAll();
-
-
 }
-

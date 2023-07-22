@@ -8,4 +8,3 @@ public class BadParamsException extends RuntimeException {
     public BadParamsException(String s) {
     }
 }
-

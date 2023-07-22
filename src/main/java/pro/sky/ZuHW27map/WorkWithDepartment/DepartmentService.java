@@ -14,4 +14,3 @@ public interface DepartmentService {
 
     public Map<Integer, List<Employee>> allEmployee();
 }
-

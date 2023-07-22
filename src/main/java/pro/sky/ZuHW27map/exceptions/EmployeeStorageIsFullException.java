@@ -5,4 +5,3 @@ public class EmployeeStorageIsFullException extends RuntimeException {
         super(a);
     }
 }
-
