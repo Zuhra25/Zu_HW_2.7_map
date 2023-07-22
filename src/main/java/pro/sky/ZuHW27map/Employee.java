@@ -10,7 +10,6 @@ public class Employee {
     public int department;
 
 
-
     public Employee(String firstName, String lastName, double salary, int department) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,7 +26,8 @@ public class Employee {
     }
 
     public String getFullName() {
-        return firstName + " " + lastName; }
+        return firstName + " " + lastName;
+    }
 
     public double getSalary() {
         return salary;

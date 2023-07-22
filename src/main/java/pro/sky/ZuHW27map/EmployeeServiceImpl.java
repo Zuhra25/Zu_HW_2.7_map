@@ -13,7 +13,7 @@ import java.util.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    private final List<Employee> employees=new ArrayList<>();
+    private final List<Employee> employees = new ArrayList<>();
     private int size = 4;
 
     public EmployeeServiceImpl() {
@@ -24,12 +24,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee addEmployee(String firstName, String lastName, double salary, int department) {
-        Employee employee = new Employee(firstName, lastName, salary,department);
-        if (firstName =="" || lastName == "") {
+        Employee employee = new Employee(firstName, lastName, salary, department);
+        if (firstName == "" || lastName == "") {
             throw new BadParamsException("поля пустые");
 
         }
-            if (employees.contains(employee)) {
+        if (employees.contains(employee)) {
             throw new EmployeeAlreadyAddedException("этот сотрудник уже существует");
         }
         if (employees.size() > size) {
@@ -40,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee removeEmployee(String firstName, String lastName, double salary, int department) {
-        Employee employee = new Employee(firstName, lastName, salary,department);
+        Employee employee = new Employee(firstName, lastName, salary, department);
 
         if (employees.contains(employee)) {
             employees.remove(employee);
@@ -50,7 +50,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee findEmployee(String firstName, String lastName, double salary, int department) {
-        Employee employee = new Employee(firstName, lastName, salary,department);
+        Employee employee = new Employee(firstName, lastName, salary, department);
         if (employees.contains(employee)) {
             return employee;
         }
