@@ -1,6 +1,8 @@
 package pro.sky.ZuHW27map;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 public class Employee {
@@ -11,8 +13,8 @@ public class Employee {
 
 
     public Employee(String firstName, String lastName, double salary, int department) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = StringUtils.capitalize(firstName);
+        this.lastName = StringUtils.capitalize(lastName);
         this.salary = salary;
         this.department = department;
     }
