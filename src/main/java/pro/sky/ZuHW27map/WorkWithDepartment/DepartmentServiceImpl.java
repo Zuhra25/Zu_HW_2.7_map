@@ -27,6 +27,7 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .max(Comparator.comparing(e -> e.getSalary()))
                 .orElseThrow(() -> new BadParamsException("не найдет сотрудник с макс ЗП"));
     }
+
     public Employee minSalary(int dep) {  // Найти сотрудника с максимальной зарплатой.
         return employeeService.printAll().stream()
                 .filter(e -> e.getDepartment() == dep)
@@ -34,15 +35,14 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .orElseThrow(() -> new BadParamsException("не найдет сотрудник с мин ЗП"));
     }
 
-    public List<Employee> allEmployeeInDep(int dep){
+    public List<Employee> allEmployeeInDep(int dep) {
         return employeeService.printAll().stream()
                 .filter(e -> e.getDepartment() == dep)
                 .collect(Collectors.toList());
     }
 
-    public Map<Integer, List<Employee>> allEmployee (){
+    public Map<Integer, List<Employee>> allEmployee() {
         return employeeService.printAll().stream()
                 .collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.toList()));
     }
-
 }
